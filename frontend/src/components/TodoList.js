@@ -38,6 +38,10 @@ export default class TodoList extends React.Component {
 
   render() {
     let { todos } = this.props;
+
+    if (! todos ) return <p>Loading...</p>
+
+
     return todos.length > 0 ? (
       this.renderTodos(todos)
     ) : (

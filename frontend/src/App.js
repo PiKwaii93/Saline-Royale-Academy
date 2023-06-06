@@ -3,6 +3,8 @@ import axios from "axios";
 import "./App.scss";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,6 +27,7 @@ export default class App extends React.Component {
   }
 
   handleAddTodo = (value) => {
+    console.log(this.state.todos)
     axios
       .post("/api/todos", { text: value })
       .then(() => {
@@ -33,22 +36,16 @@ export default class App extends React.Component {
         });
       })
       .catch((e) => console.log("Error : ", e));
+      console.log(this.state.todos)
   };
 
   render() {
     return (
-      <div className="App container">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-xs-12 col-sm-8 col-md-8 offset-md-2">
-              <h1>Meow</h1>
-              <div className="todo-app">
-                <AddTodo handleAddTodo={this.handleAddTodo} />
-                <TodoList todos={this.state.todos} />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="App">
+        <Header/>
+          <AddTodo handleAddTodo={this.handleAddTodo} />
+          <TodoList todos={this.state.todos} />
+        <Footer/>
       </div>
     );
   }

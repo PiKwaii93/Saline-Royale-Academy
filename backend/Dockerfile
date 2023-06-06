@@ -1,31 +1,31 @@
-# syntax=docker/dockerfile:1.4
+FROM node:18-alpine as development
 
-FROM node:lts-buster-slim AS development
-
-# Create app directory
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/package.json
-COPY package-lock.json /usr/src/app/package-lock.json
-RUN npm ci
+COPY ["package.json", "package-lock.json*", "./"]
 
-COPY . /usr/src/app
+RUN apk add --no-cache openssh
 
-EXPOSE 3000
+RUN npm install
 
-CMD [ "npm", "run", "dev" ]
+COPY . .
 
-FROM development as dev-envs
-RUN <<EOF
-apt-get update
-apt-get install -y --no-install-recommends git
-EOF
+CMD ["npm", "start"]
 
-RUN <<EOF
-useradd -s /bin/bash -m vscode
-groupadd docker
-usermod -aG docker vscode
-EOF
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-CMD [ "npm", "run", "dev" ]
+# # ------------------------------------------------------------------------
+
+FROM node:18-alpine as production
+
+RUN npm install -g nodemon
+
+WORKDIR /usr/src/app
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN apk add --no-cache openssh
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "dev"]
