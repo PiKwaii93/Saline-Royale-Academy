@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: ./api
+      target: production
+    restart: always
+    container_name: api_backend
+    ports:
+      - '4000:4000'
+    networks: 
+      - nimbus-network
+      - db_db-network
+
+  client:
+    build:
+      context: ./client
+      target: production
+    restart: always
+    container_name: client_frontend
+    ports:
+      - '3000:3000'
+    networks: 
+      - nimbus-network
+
+networks:
+  nimbus-network:
+  db_db-network:
+
+# docker compose -f docker-compose.yml up -d --build
