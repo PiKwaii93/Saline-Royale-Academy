@@ -1,5 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+/* import { testDatabase } from './controllers/testDatabaseController'; */
+import pool from '../config/db.js';
+
 const app = express();
 
 const port = process.env.PORT || 4000;
@@ -25,13 +28,28 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.send('Home Route');
+
+var router = express.Router();
+
+
+router.use(function(req, res, next) {
+  console.log('%s %s %s', req.method, req.url, req.path);
+  next();
 });
 
-app.get("/test", (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+router.get("/test", (req, res) => {
+  res.send({ express: 'Renvois le test' });
 });
+/* 
+router.get("/database", testDatabase); */
+
+router.get("/database", (req, res) => {
+  res.send({ express: 'Renvois la DATABASE' });
+});
+
+app.use('/foo', router)
+
+app.listen(3000);
 
 /* var corsOptions = {
   credentials: true,

@@ -13,7 +13,8 @@ export default class Header extends React.Component {
                 <span className="menu-burger-span"></span>
             </div>
             <div className="logo-header-container">
-                <img src="./Logo.svg" alt="logo" />
+              <img src="./Logo.svg" alt="logo" />
+              <img src="/Logo.svg" alt="logo" />
             </div>
             <div className="account-language-container">
                 <div>
