@@ -1,14 +1,19 @@
 import express from 'express';
 import cors from 'cors';
-/* import { testDatabase } from './controllers/testDatabaseController'; */
-import pool from '../config/db.js';
+import router from './routes/apiRoutes.js';
 
 const app = express();
 
+var corsOptions = {
+  credentials: true,
+  /* origin: `http://localhost:${port}` */
+};
+app.use(cors(corsOptions))
+app.use(express.json());
+
 const port = process.env.PORT || 4000;
 
-
-// Add headers before the routes are defined
+/* // Add headers before the routes are defined
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
@@ -26,47 +31,9 @@ app.use(function (req, res, next) {
 
   // Pass to next layer of middleware
   next();
-});
+}); */
 
-
-var router = express.Router();
-
-
-router.use(function(req, res, next) {
-  console.log('%s %s %s', req.method, req.url, req.path);
-  next();
-});
-
-router.get("/test", (req, res) => {
-  res.send({ express: 'Renvois le test' });
-});
-/* 
-router.get("/database", testDatabase); */
-
-router.get("/database", (req, res) => {
-  res.send({ express: 'Renvois la DATABASE' });
-});
-
-app.use('/foo', router)
-
-app.listen(3000);
-
-/* var corsOptions = {
-  credentials: true,
-  origin: `http://localhost:${port}`
-};
-app.use(cors()); */
-app.use(express.json());
-
-/* const corsOptions ={
-  origin:'http://localhost:3000', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}
-app.use(cors(corsOptions)); */
-
-
-
+app.use('/foo', router);
 
 
 app.listen(port, () =>

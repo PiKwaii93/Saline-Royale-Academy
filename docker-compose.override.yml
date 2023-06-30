@@ -14,6 +14,8 @@ services:
     networks: 
       - nimbus-network
       - db_db-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   client:
     build:

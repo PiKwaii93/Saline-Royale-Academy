@@ -12,6 +12,8 @@ services:
       - saline-network
       - docker-service
       - db_db-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   client:
     build:
@@ -24,7 +26,7 @@ services:
     networks: 
       - saline-network
 
-  mariadb:
+  db:
     image: mariadb
     env_file:
       - .env.docker

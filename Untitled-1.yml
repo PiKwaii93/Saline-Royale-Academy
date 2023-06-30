@@ -10,8 +10,9 @@ services:
       - '4000:4000'
     networks: 
       - saline-network
-      - docker-service
       - db_db-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   client:
     build:
@@ -24,14 +25,11 @@ services:
     networks: 
       - saline-network
 
-  mariadb:
+  db:
     image: mariadb
-    env_file:
-      - .env.docker
-    ports:
-      - 3306:3306
-    networks:
-      - docker-service
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: password
 
   adminer:
     image: adminer
@@ -41,8 +39,10 @@ services:
 
 networks:
   saline-network:
+    name: saline-network
+    external: true
   db_db-network:
-  docker-service:
-    driver: bridge
+    name: db_db-network
+    external: true
 
 # docker compose -f docker-compose.yml up -d --build

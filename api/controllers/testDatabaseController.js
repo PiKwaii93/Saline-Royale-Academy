@@ -1,10 +1,7 @@
 import pool from '../config/db.js';
 
 export function testDatabase(req, res) {
-
-    res.send({ express: 'Renvois la DATABASE' });
-
-    /* try {
+    try {
         pool
             .query(
                 `SELECT title FROM books;`
@@ -19,5 +16,7 @@ export function testDatabase(req, res) {
             status: 'Failed',
             message: 'Request failed',
         });
-    } */
+    } 
+    
+    
 }

@@ -12,9 +12,33 @@ import Footer from './components/Footer';
 
 export default class App extends React.Component {
     
-  test1() {
+  deploy1() {
+    axios
+      .get("http://groupe1.hetic-projects.arcplex.tech/foo/database")
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => console.log("Error : ", e));
+  }
+  deploy2() {
     axios
       .get("http://groupe1.hetic-projects.arcplex.tech/foo/test")
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => console.log("Error : ", e));
+  }
+  deploy3() {
+    axios
+      .get("http://groupe1.hetic-projects.arcplex.tech/foo/meow")
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => console.log("Error : ", e));
+  }
+  deploy4() {
+    axios
+      .get("http://groupe1.hetic-projects.arcplex.tech/foo/")
       .then((response) => {
         console.log(response)
       })
@@ -23,13 +47,32 @@ export default class App extends React.Component {
 
   test2() {
     axios
-      .get("http://groupe1.hetic-projects.arcplex.tech/foo/database")
+      .get("http://localhost:4000/foo/database")
       .then((response) => {
         console.log(response)
       })
       .catch((e) => console.log("Error : ", e));
   }
 
+  test3() {
+    axios
+      .get("http://localhost:4000/foo/test")
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => console.log("Error : ", e));
+  }
+
+  test4() {
+    axios
+      .get("http://localhost:4000/foo/meow")
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => console.log("Error : ", e));
+  }
+  
+  
     render(){
         return (
             <div className="App">
@@ -42,8 +85,14 @@ export default class App extends React.Component {
                             <Route path="*" element={<NoPage />} />
                         </Route>
                     </Routes>
-                    <button onClick={this.test1}>Test</button>
-                    <button onClick={this.test2}>Data</button>
+                    <button onClick={this.deploy1}>Deploy</button>
+                    <button onClick={this.deploy2}>Deploy</button>
+                    <button onClick={this.deploy3}>Deploy</button>
+                    <button onClick={this.deploy4}>Deploy</button>
+
+                    <button onClick={this.test2}>Test</button>
+                    <button onClick={this.test3}>Test</button>
+                    <button onClick={this.test4}>Test</button>
                 <Footer/>
             </div>
         );

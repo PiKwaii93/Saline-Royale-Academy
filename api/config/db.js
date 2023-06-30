@@ -1,12 +1,12 @@
 import mariadb from 'mariadb';
 
 const pool = mariadb.createPool({
-  host: 'localhost',
-  port: 3306,
+  host: 'mariadb',
   user: 'root',
   password: 'password',
-  database: 'test',
+  database: 'test'
 });
+
 
 pool.getConnection((err, connexion) => {
   if (err) {
@@ -15,5 +15,9 @@ pool.getConnection((err, connexion) => {
   if (connexion) connexion.release();
   return;
 });
+
+console.log("//////////////////////////////")
+console.log(process.env)
+console.log("//////////////////////////////")
 
 export default pool;
