@@ -16,8 +16,4 @@ pool.getConnection((err, connexion) => {
   return;
 });
 
-console.log("//////////////////////////////")
-console.log(process.env)
-console.log("//////////////////////////////")
-
 export default pool;

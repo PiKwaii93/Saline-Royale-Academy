@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import NoPage from "./components/NoPage";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Header2 from "./components/Header2";
 
 export default class App extends React.Component {
     
@@ -76,7 +77,7 @@ export default class App extends React.Component {
     render(){
         return (
             <div className="App">
-                <Header/>
+                {window.innerWidth > 1200 ? <Header2/> : <Header/>}
                     <Routes>
                         <Route path="/" element={<Layout />}>
                             <Route index element={<Home />} />
