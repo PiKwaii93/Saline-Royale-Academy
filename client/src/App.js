@@ -10,10 +10,12 @@ import NoPage from "./components/NoPage";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Header2 from "./components/Header2";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
-export default class App extends React.Component {
+export default function App() {
     
-  deploy1() {
+  function deploy1() {
     axios
       .get("http://groupe1.hetic-projects.arcplex.tech/foo/database")
       .then((response) => {
@@ -21,7 +23,7 @@ export default class App extends React.Component {
       })
       .catch((e) => console.log("Error : ", e));
   }
-  deploy2() {
+  function deploy2() {
     axios
       .get("http://groupe1.hetic-projects.arcplex.tech/foo/test")
       .then((response) => {
@@ -29,7 +31,7 @@ export default class App extends React.Component {
       })
       .catch((e) => console.log("Error : ", e));
   }
-  deploy3() {
+  function deploy3() {
     axios
       .get("http://groupe1.hetic-projects.arcplex.tech/foo/meow")
       .then((response) => {
@@ -37,7 +39,7 @@ export default class App extends React.Component {
       })
       .catch((e) => console.log("Error : ", e));
   }
-  deploy4() {
+  function deploy4() {
     axios
       .get("http://groupe1.hetic-projects.arcplex.tech/foo/")
       .then((response) => {
@@ -46,7 +48,7 @@ export default class App extends React.Component {
       .catch((e) => console.log("Error : ", e));
   }
 
-  test2() {
+  function test2() {
     axios
       .get("http://localhost:4000/foo/database")
       .then((response) => {
@@ -55,7 +57,7 @@ export default class App extends React.Component {
       .catch((e) => console.log("Error : ", e));
   }
 
-  test3() {
+  function test3() {
     axios
       .get("http://localhost:4000/foo/test")
       .then((response) => {
@@ -64,7 +66,7 @@ export default class App extends React.Component {
       .catch((e) => console.log("Error : ", e));
   }
 
-  test4() {
+  function test4() {
     axios
       .get("http://localhost:4000/foo/meow")
       .then((response) => {
@@ -74,7 +76,6 @@ export default class App extends React.Component {
   }
   
   
-    render(){
         return (
             <div className="App">
                 {window.innerWidth > 1200 ? <Header2/> : <Header/>}
@@ -84,18 +85,19 @@ export default class App extends React.Component {
                             <Route path="blogs" element={<Blogs />} />
                             <Route path="contact" element={<Contact />} />
                             <Route path="*" element={<NoPage />} />
+                            <Route path="/login" element={<Login/>} />
+                            <Route path="/register" element={<Register/>} />
                         </Route>
                     </Routes>
-                    <button onClick={this.deploy1}>Deploy</button>
-                    <button onClick={this.deploy2}>Deploy</button>
-                    <button onClick={this.deploy3}>Deploy</button>
-                    <button onClick={this.deploy4}>Deploy</button>
+                    <button onClick={deploy1}>Deploy</button>
+                    <button onClick={deploy2}>Deploy</button>
+                    <button onClick={deploy3}>Deploy</button>
+                    <button onClick={deploy4}>Deploy</button>
 
-                    <button onClick={this.test2}>Test</button>
-                    <button onClick={this.test3}>Test</button>
-                    <button onClick={this.test4}>Test</button>
+                    <button onClick={test2}>Test</button>
+                    <button onClick={test3}>Test</button>
+                    <button onClick={test4}>Test</button>
                 <Footer/>
             </div>
         );
-    }
   }

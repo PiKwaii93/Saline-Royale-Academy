@@ -1,5 +1,5 @@
-import React from "react";
-import {Routes, Route, Link} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import {Routes, Route, Link, useNavigate, useParams, useLocation} from 'react-router-dom';
 import Layout from "./Layout";
 import Home from "./Home";
 import Blogs from "./Blogs";
@@ -7,31 +7,53 @@ import Contact from "./Contact";
 import NoPage from "./NoPage";
 import { slide as Menu } from 'react-burger-menu'
 
-export default class Header extends React.Component {
+export default function Header(){
   
-  showSettings (event) {
-    event.preventDefault();
-  }
+  
 
-  menuLangueFunction(){
+  function menuLangueFunction(){
     let menuLangue = document.getElementById("menuBurgerLangueSecond")
     let menuPrincipal = document.getElementById("menuBurgerPrincipal")
     menuLangue.classList.toggle("hidden")
     menuPrincipal.classList.toggle("hidden")
   }
 
-  backMenuPrincipalFunction(){
+  function backMenuPrincipalFunction(){
     let menuLangue = document.getElementById("menuBurgerLangueSecond")
     let menuPrincipal = document.getElementById("menuBurgerPrincipal")
     menuLangue.classList.toggle("hidden")
     menuPrincipal.classList.toggle("hidden")
   }
 
-    render() {
+  const navigate = useNavigate();
+  const params = useParams();
+  const location = useLocation();
+
+  
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location]);
+
+  const [menuOpen, setMenuOpen] = useState(false)
+
+
+function handleOpen(){
+  console.log("open")
+  console.log(menuOpen)
+  setMenuOpen(true)
+}
+
+function handleClose(){
+  console.log("close")
+  setMenuOpen(false)
+}
+  
+
         return (
           <div className="header-container">
-            <div className="menu-burger">
-              <Menu width={ '100%' } customBurgerIcon={ <img src="/burger.svg" /> } customCrossIcon={ <img src="/cross.svg" /> }>
+            <div className="menu-burger" >
+              <Menu width={ '100%' } customBurgerIcon={ <img src="/burger.svg" /> } customCrossIcon={ <img src="/cross.svg"/> } isOpen={menuOpen} onOpen={handleOpen} onClose={handleClose}>
                 <div className="menu-burger-container" id="menuBurgerPrincipal">
                   <div className="menu-burger-link-container-all">
                     <Link to="/" className="menu-burger-link-prevent-style">
@@ -51,7 +73,7 @@ export default class Header extends React.Component {
                         <span className="menu-burger-link">On-site academies</span>
                       </div>
                     </Link>
-                    <Link to="/" className="menu-burger-link-prevent-style">
+                    <Link to="/login" className="menu-burger-link-prevent-style">
                       <div className="menu-burger-link-container">
                         <span className="menu-burger-link">Connexion</span>
                       </div>
@@ -62,7 +84,7 @@ export default class Header extends React.Component {
                       </div>
                     </Link>
                   </div>
-                  <div className="menu-burger-langue-container" onClick={this.menuLangueFunction}>
+                  <div className="menu-burger-langue-container" onClick={menuLangueFunction}>
                     <img src="/France.svg" alt="Langue française" className="svg-langue"/>
                     <span className="menu-burger-link">Français</span>
                     <img src="/Arrow_right.svg" alt="Changer de langue" className="svg-link"/>
@@ -70,7 +92,7 @@ export default class Header extends React.Component {
                 </div>
                 <div className="menu-burger-container-second hidden" id="menuBurgerLangueSecond">
                   <div className="menu-burger-container-second-all">
-                    <div className="menu-burger-container-second-back" onClick={this.backMenuPrincipalFunction}>
+                    <div className="menu-burger-container-second-back" onClick={backMenuPrincipalFunction}>
                       <img src="/Arrow_back.svg" alt="Revenir au menu principal" className="svg-link"></img>
                       <span className="back-link">Back</span>
                     </div>
@@ -104,5 +126,4 @@ export default class Header extends React.Component {
             </div>
           </div>
         );
-      }
 }
