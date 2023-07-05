@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import NoPage from "./components/NoPage";
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Subscribe from './components/Subscribe_page';
 
 export default class App extends React.Component {
     
@@ -83,6 +84,7 @@ export default class App extends React.Component {
                             <Route path="blogs" element={<Blogs />} />
                             <Route path="contact" element={<Contact />} />
                             <Route path="*" element={<NoPage />} />
+                            <Route path="Subscribe" element={<Subscribe />} />
                         </Route>
                     </Routes>
                     <button onClick={this.deploy1}>Deploy</button>

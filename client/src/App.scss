@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  color: #161C3D;
+  font-family: Noto Sans;
 }
 .todo-app {
   background-color: #efefef;
@@ -12,6 +14,109 @@
       width: 80% !important;
     }
   }
+}
+.Subscribe{
+  margin: 2%;
+  padding: 3%;
+}
+.Title{
+  display: flex;
+  width: 433px;
+  height: 35px;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-size: 50px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10%;
+}
+.Subscribe-options-panel{
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+}
+.Subscribe-options{
+  display: flex;
+  max-width: 429.94px;
+  min-height: 79px;
+  padding: 35px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+}
+.Subscribe-options-mid{
+  display: flex;
+  max-width: 429.94px;
+  min-height: 79px;
+  padding: 35px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border: solid;
+  border-color: #CC34AE;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+}
+.Total-price{
+  padding: 10%;
+  h4{
+    text-align: center;
+    font-size: 22px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+  }
+  h3{
+    text-align: center;
+    font-size: 22px;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+  }
+}
+.Price{
+  display: flex;
+  padding: 0px 30px;
+  align-items: center;
+  gap: 1px;
+  
+}
+.Avantage{
+  font-size: 16.8px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.52px;
+  flex-direction: column;
+  gap: 25px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 0 0;
+}
+button{
+  display: inline-block;
+  background-color: #AC37B5;
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px
+}
+.test1{
+  flex-shrink: 0;
 }
 
 //.list-group-item{
