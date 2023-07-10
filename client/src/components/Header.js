@@ -6,6 +6,12 @@ import Blogs from "./Blogs";
 import Contact from "./Contact";
 import NoPage from "./NoPage";
 import { slide as Menu } from 'react-burger-menu'
+import HideIfLogged from './HideIfLoggin';
+import HideIfNotLogged from './HideIfNotLogged';
+
+import { useDispatch } from 'react-redux';
+import { disconnect } from '../features/userSlice';
+import { useSelector } from 'react-redux'; 
 
 export default function Header(){
   
@@ -25,8 +31,6 @@ export default function Header(){
     menuPrincipal.classList.toggle("hidden")
   }
 
-  const navigate = useNavigate();
-  const params = useParams();
   const location = useLocation();
 
   
@@ -38,16 +42,17 @@ export default function Header(){
   const [menuOpen, setMenuOpen] = useState(false)
 
 
-function handleOpen(){
-  console.log("open")
-  console.log(menuOpen)
-  setMenuOpen(true)
-}
+  function handleOpen(){
+    setMenuOpen(true)
+  }
 
-function handleClose(){
-  console.log("close")
-  setMenuOpen(false)
-}
+  function handleClose(){
+    setMenuOpen(false)
+  }
+
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   
 
         return (
@@ -83,6 +88,11 @@ function handleClose(){
                         <span className="menu-burger-link">Offres</span>
                       </div>
                     </Link>
+                    <HideIfNotLogged>
+                      <div className="menu-burger-link-container" onClick={() => dispatch(disconnect())}>
+                        <span className="menu-burger-link">Disconnect</span>
+                      </div>
+                    </HideIfNotLogged>
                   </div>
                   <div className="menu-burger-langue-container" onClick={menuLangueFunction}>
                     <img src="/France.svg" alt="Langue française" className="svg-langue"/>

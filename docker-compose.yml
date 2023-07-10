@@ -32,14 +32,22 @@ services:
       - 3306:3306
     networks:
       - docker-service
+      - mariadb_network
     volumes:
       - dbdata:/var/lib/mysql
 
   adminer:
     image: adminer
     restart: always
+    environment:
+      - ADMINER_DEFAULT_DB_DRIVER=mysql
+      - ADMINER_DEFAULT_DB_HOST=mariadb
     ports:
       - 8080:8080
+    depends_on:
+      - mariadb
+    networks:
+      - mariadb_network
 
 volumes:
   dbdata:
@@ -47,6 +55,8 @@ volumes:
 networks:
   saline-network:
   db_db-network:
+  mariadb_network:
+    external: false
   docker-service:
     driver: bridge
 

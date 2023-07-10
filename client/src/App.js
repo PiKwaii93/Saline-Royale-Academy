@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import axios from "axios";
 import "./App.scss";
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Blogs from "./components/Blogs";
@@ -12,6 +12,8 @@ import Footer from './components/Footer';
 import Header2 from "./components/Header2";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import HideIfLogged from './components/HideIfLoggin';
+import HideIfNotLogged from './components/HideIfNotLogged';
 
 export default function App() {
     
@@ -75,20 +77,30 @@ export default function App() {
       .catch((e) => console.log("Error : ", e));
   }
   
-  
+
+
         return (
             <div className="App">
                 {window.innerWidth > 1200 ? <Header2/> : <Header/>}
-                    <Routes>
+                    <HideIfLogged>
+                      <Routes>
+                        <Route path="/*" element={<Navigate to="/login" />} />
+                        <Route path="/login" element={<Login/>} />
+                        <Route path="/register" element={<Register/>} />
+                      </Routes>
+                    </HideIfLogged>
+                    <HideIfNotLogged>
+                      <Routes>
                         <Route path="/" element={<Layout />}>
-                            <Route index element={<Home />} />
-                            <Route path="blogs" element={<Blogs />} />
-                            <Route path="contact" element={<Contact />} />
-                            <Route path="*" element={<NoPage />} />
-                            <Route path="/login" element={<Login/>} />
-                            <Route path="/register" element={<Register/>} />
+                          <Route index element={<Home />} />
+                          <Route path="blogs" element={<Blogs />} />
+                          <Route path="contact" element={<Contact />} />
+                          <Route path="/login" element={<Navigate to="/" />} />
+                          <Route path="/register" element={<Navigate to="/" />} />
+                          <Route path="*" element={<NoPage />} />
                         </Route>
-                    </Routes>
+                      </Routes>
+                    </HideIfNotLogged>
                     <button onClick={deploy1}>Deploy</button>
                     <button onClick={deploy2}>Deploy</button>
                     <button onClick={deploy3}>Deploy</button>

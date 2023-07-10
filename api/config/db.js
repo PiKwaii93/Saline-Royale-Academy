@@ -1,10 +1,18 @@
 import mariadb from 'mariadb';
 
-const pool = mariadb.createPool({
+/* const pool = mariadb.createPool({
   host: 'mariadb',
   user: 'root',
   password: 'password',
   database: 'test'
+}); */
+
+const pool = mariadb.createPool({
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'password',
+  database: 'saline'
 });
 
 
@@ -17,3 +25,6 @@ pool.getConnection((err, connexion) => {
 });
 
 export default pool;
+
+
+/* mariadb --user root -ppassword */

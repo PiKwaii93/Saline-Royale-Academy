@@ -1,11 +1,28 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../features/userSlice';
+
 
 export default function Login() {
+
+  const dispatch = useDispatch();
+
+  const [infosConnection, setInfosConnexion] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = ({ target }) => {
+    setInfosConnexion((prev) => ({
+      ...prev,
+      [target.name]: target.value,
+    }));
+  };
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e)
+    dispatch(loginUser(infosConnection))
   };
 
     return (
@@ -24,6 +41,7 @@ export default function Login() {
               <input
                 type="text"
                 name="email"
+                onChange={handleChange}
                 placeholder="Email address"
                 required
                 minLength={1}
@@ -32,6 +50,7 @@ export default function Login() {
               <input
                 type="text"
                 name="password"
+                onChange={handleChange}
                 placeholder="Password"
                 required
                 minLength={1}

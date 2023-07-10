@@ -19,6 +19,7 @@ export default class Header2 extends React.Component {
                     <Link to="/" className="link-header-desktop">Home</Link>
                     <Link to="/blogs" className="link-header-desktop">Blogs</Link>
                     <Link to="/contact" className="link-header-desktop">Contact</Link>
+                    <Link to="/login" className="link-header-desktop">Login</Link>
                 </div>
                 <div className="account-language-container-desktop">
                     <div className="arrow-header-desktop">
