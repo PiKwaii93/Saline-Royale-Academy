@@ -14,6 +14,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import HideIfLogged from './components/HideIfLoggin';
 import HideIfNotLogged from './components/HideIfNotLogged';
+import Account from "./components/Account";
 
 export default function App() {
     
@@ -97,6 +98,7 @@ export default function App() {
                           <Route path="contact" element={<Contact />} />
                           <Route path="/login" element={<Navigate to="/" />} />
                           <Route path="/register" element={<Navigate to="/" />} />
+                          <Route path="/account" element={<Account/>} />
                           <Route path="*" element={<NoPage />} />
                         </Route>
                       </Routes>

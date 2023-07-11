@@ -132,7 +132,9 @@ export default function Header(){
                     <span className="language_indicator">FR</span>
                     <img src="/Arrow_down.svg" alt="defilement langue" />
                 </div>
-                <img src="/Account.svg" alt="account" />
+                <Link to="/account" className="menu-burger-link-prevent-style">
+                  <span className="back-text"><img src="/Account.svg" alt="account" /></span>
+                </Link>
             </div>
           </div>
         );

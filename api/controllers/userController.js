@@ -1,16 +1,17 @@
 import pool from '../config/db.js';
 import jwt from 'jsonwebtoken';
-import * as dotenv from 'dotenv';
-import ssh from 'ssh2';
+import crypto from 'crypto'
 
 const jwtKey = "saline_secret_key"
 const jwtExpirySeconds = 300
 
+
+
 export function login(req, res) {
   const { email, password } = req.body;
   if (email && password) {
-    console.log(password)
     try {
+      console.log(email, password)
       pool
         .query(
           `SELECT id, firstName, lastName FROM users WHERE email='${email}' AND password='${password}' LIMIT 1`
@@ -23,7 +24,7 @@ export function login(req, res) {
                 expiresIn: jwtExpirySeconds,
               }
             );
-            console.log(token)
+            console.log("token : " + token)
             res.cookie('access_token', token);
             res.status(202).json({
               status: 'Success',
@@ -43,7 +44,7 @@ export function login(req, res) {
     } catch (e) {
       res.status(400).json({
         status: 'Failed',
-        message: 'Request failed',
+        message: 'Request failed on SELECT',
       });
     }
   } else {
@@ -66,7 +67,7 @@ export function register(req, res) {
       catch (e){
         res.status(400).json({
           status: 'Failed',
-          message: 'Request failed',
+          message: 'Request failed on INSERT',
         });
       }
       login(req, res)
