@@ -1,8 +1,10 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
 export default function Account() {
   
-    
+      const user = useSelector((state) => state.user);
+      console.log(user)
 
       return (
         <div className="profil-container-page">
@@ -15,8 +17,8 @@ export default function Account() {
                 <img className="profil-picture" src="/Profil_Picture.png" alt="Profil Picture" />
                 <div className="profil-container-information-text-all">
                   <div className="profil-container-information-text">
-                    <span className="profil-micro-information-text">marley.botosh@gmail.com</span>
-                    <span className="profil-information-text">Marley Botosh</span>
+                    <span className="profil-micro-information-text">{user.email}</span>
+                    <span className="profil-information-text">{user.firstName} {user.lastName}</span>
                   </div>
                 </div>
               </div>

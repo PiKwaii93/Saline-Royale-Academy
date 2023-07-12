@@ -4,7 +4,7 @@ import useRegister from '../hooks/useRegister';
 
 const initialState = {
   id: '',
-  fistName: '',
+  firstName: '',
   lastName: '',
   email: '',
   token: '',
@@ -51,12 +51,14 @@ const userSlice = createSlice({
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.firstName = action.payload.user.firstName;
       state.lastName = action.payload.user.lastName;
+      state.email = action.payload.user.email;
       state.token = action.payload.token;
     });
     builder.addCase(registerUser.fulfilled, (state, action) => {
         console.log(action)
         state.firstName = action.payload.user.firstName;
         state.lastName = action.payload.user.lastName;
+        state.email = action.payload.user.email;
         state.token = action.payload.token;
     });
   },

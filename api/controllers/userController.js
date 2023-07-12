@@ -34,6 +34,7 @@ export function login(req, res) {
                     user: {
                       lastName: response[0].lastName,
                       firstName: response[0].firstName,
+                      email : email
                     },
                     token: token,
                   });
@@ -68,24 +69,45 @@ export function login(req, res) {
 export function register(req, res) {
   const { lastName, firstName, email, password, passwordConfirm } = req.body;
   if (email && firstName && lastName && password && passwordConfirm) {
-    if (password == passwordConfirm) {
-      bcrypt.hash(password, 10, function(err, hash) {
-        try {
-          pool
-            .query(`INSERT INTO users(email, lastname, firstname, password) VALUES('${email}', '${lastName}', '${firstName}', '${hash}')`)
-        }
-        catch (e){
-          res.status(400).json({
-            status: 'Failed',
-            message: 'Request failed on INSERT',
-          });
-        }
-        login(req, res)
-      });
-    } else {
+    try {
+      pool
+        .query(
+          `SELECT * FROM users WHERE email='${email}' LIMIT 1`
+        )
+        .then((response) => {
+          if (response.length > 0){
+            res.status(400).json({
+              status: 'Failed',
+              message: 'Email already used',
+            });
+          }else{
+            if (password == passwordConfirm) {
+              bcrypt.hash(password, 10, function(err, hash) {
+                try {
+                  pool
+                    .query(`INSERT INTO users(email, lastname, firstname, password) VALUES('${email}', '${lastName}', '${firstName}', '${hash}')`)
+                }
+                catch (e){
+                  res.status(400).json({
+                    status: 'Failed',
+                    message: 'Request failed on INSERT',
+                  });
+                }
+                login(req, res)
+              });
+            } else {
+              res.status(400).json({
+                status: 'Failed',
+                message: 'Passwords not matching',
+              });
+            }
+          }
+        })
+    }
+    catch (e){
       res.status(400).json({
         status: 'Failed',
-        message: 'Passwords not matching',
+        message: 'Request failed',
       });
     }
   } else {
