@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../features/userSlice';
+import { useSelector } from 'react-redux';
+
 
 
 export default function Login() {
@@ -12,6 +14,7 @@ export default function Login() {
     email: '',
     password: '',
   });
+
 
   const handleChange = ({ target }) => {
     setInfosConnexion((prev) => ({
@@ -25,12 +28,19 @@ export default function Login() {
     dispatch(loginUser(infosConnection))
   };
 
+  const user = useSelector((state) => state.user);
+
     return (
       <>
       <div className="login-container-all">
         <div className="login-title-container">
           <span className="login-title">Login</span>
         </div>
+        {user.errorMessage.length > 0 &&
+          <div className="login-error-container">
+            <span className="login-error-message">{user.errorMessage}</span>
+          </div>
+        }
         <div className="login-container">
           <form
             noValidate

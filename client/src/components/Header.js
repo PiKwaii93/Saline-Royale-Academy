@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Routes, Route, Link, useNavigate, useParams, useLocation} from 'react-router-dom';
-import Layout from "./Layout";
-import Home from "./Home";
-import Blogs from "./Blogs";
-import Contact from "./Contact";
-import NoPage from "./NoPage";
+import {Link, useLocation} from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu'
 import HideIfLogged from './HideIfLoggin';
 import HideIfNotLogged from './HideIfNotLogged';
@@ -12,6 +7,10 @@ import HideIfNotLogged from './HideIfNotLogged';
 import { useDispatch } from 'react-redux';
 import { disconnect } from '../features/userSlice';
 import { useSelector } from 'react-redux'; 
+
+import { Menu as Menu2, MenuItem, MenuButton } from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
 
 export default function Header(){
   
@@ -125,15 +124,22 @@ export default function Header(){
               </Menu>
             </div>
             <div className="logo-header-container">
-              <img src="/Logo.svg" alt="logo" />
+              <Link to="/" className="menu-burger-link-prevent-style">
+                <img src="/Logo.svg" alt="logo" />
+              </Link>
             </div>
             <div className="account-language-container">
-                <div>
-                    <span className="language_indicator">FR</span>
-                    <img src="/Arrow_down.svg" alt="defilement langue" />
-                </div>
+                <Menu2 menuButton={<MenuButton className="menu-langue-container"><div className="arrow-header-desktop-text">FR</div>
+                        <img src="/Arrow_down.svg" alt="defilement langue" /></MenuButton>} transition>
+                  <MenuItem><img src="/UK.svg" alt="English" className="svg-langue"></img>
+                        <span className="menu-langue-link">English</span></MenuItem>
+                  <MenuItem><img src="/JP.svg" alt="日本語" className="svg-langue"></img>
+                        <span className="menu-langue-link">日本語</span></MenuItem>
+                  <MenuItem><img src="/SKR.svg" alt="한국어" className="svg-langue"></img>
+                        <span className="menu-langue-link">한국어</span></MenuItem>
+                </Menu2>
                 <Link to="/account" className="menu-burger-link-prevent-style">
-                  <span className="back-text"><img src="/Account.svg" alt="account" /></span>
+                  <img src="/Account.svg" alt="account" />
                 </Link>
             </div>
           </div>

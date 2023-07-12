@@ -49,17 +49,26 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.firstName = action.payload.user.firstName;
-      state.lastName = action.payload.user.lastName;
-      state.email = action.payload.user.email;
-      state.token = action.payload.token;
-    });
-    builder.addCase(registerUser.fulfilled, (state, action) => {
-        console.log(action)
+      if(action.payload.message !== undefined){
+        state.errorMessage = action.payload.message;
+      }else{
         state.firstName = action.payload.user.firstName;
         state.lastName = action.payload.user.lastName;
         state.email = action.payload.user.email;
         state.token = action.payload.token;
+        state.errorMessage = ''
+      }
+    });
+    builder.addCase(registerUser.fulfilled, (state, action) => {
+      if(action.payload.message !== undefined){
+        state.errorMessage = action.payload.message;
+      }else{
+        state.firstName = action.payload.user.firstName;
+        state.lastName = action.payload.user.lastName;
+        state.email = action.payload.user.email;
+        state.token = action.payload.token;
+        state.errorMessage = ''
+      }
     });
   },
 });

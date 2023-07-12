@@ -178,3 +178,27 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.login-error-container{
+    display: flex;
+    width: 90%;
+    padding: 5px 0px 5px 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 10px;
+    border: 1px solid #F5C6CB;
+    background: #F8D7DA;
+}
+
+.login-error-message{
+    color: #721C24;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

@@ -4,7 +4,7 @@ import mariadb from 'mariadb';
   host: 'mariadb',
   user: 'root',
   password: 'password',
-  database: 'test'
+  database: 'saline'
 }); */
 
 const pool = mariadb.createPool({

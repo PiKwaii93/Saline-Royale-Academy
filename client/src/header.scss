@@ -227,3 +227,27 @@
     display: none!important;
     opacity: 0;
 }
+
+.menu-langue-link{
+    /* Typography/Link Menu */
+    font-size: 16px;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.szh-menu{
+    background:#f3f2f9;
+}
+
+.szh-menu-button{
+    all:unset
+}
+
+.menu-langue-container{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}

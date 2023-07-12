@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+let urlUsed = "http://localhost:4000"
+/* let urlUsed = "http://groupe1.hetic-projects.arcplex.tech/" */
+
 export default function useLogin() {
-  return (email, password) => {
+  return (email, password, error) => {
     return axios({
-      url: 'http://localhost:4000/foo/user/login',
+      url: urlUsed + '/foo/user/login',
       method: 'post',
       data: {
         email: email,
@@ -12,6 +15,6 @@ export default function useLogin() {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => res.data)
-      .catch((res) => console.log('error', res));
+      .catch((res) => res.response.data);
   };
 }

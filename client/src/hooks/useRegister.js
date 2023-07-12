@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+let urlUsed = "http://localhost:4000"
+/* let urlUsed = "http://groupe1.hetic-projects.arcplex.tech/"
+ */
 export default function useRegister() {
   return (firstName, lastName, email, password, passwordConfirm) => {
     return axios({
-      url: 'http://localhost:4000/foo/user/register',
+      url: urlUsed + '/foo/user/register',
       method: 'post',
       data: {
         firstName: firstName,
@@ -15,6 +18,6 @@ export default function useRegister() {
       headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => res.data)
-      .catch((res) => console.log('error', res));
+      .catch((res) => res.response.data);
   };
 }

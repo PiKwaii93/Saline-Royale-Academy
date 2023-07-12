@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../features/userSlice';
+import { useSelector } from 'react-redux';
 
 export default function Register(){
   
@@ -28,6 +29,8 @@ export default function Register(){
     console.log(infosRegister)
     dispatch(registerUser(infosRegister));
   };
+  
+  const user = useSelector((state) => state.user);
 
     return (
       <>
@@ -35,6 +38,11 @@ export default function Register(){
           <div className="register-title-container">
             <span className="register-title">Register</span>
           </div>
+          {user.errorMessage.length > 0 &&
+            <div className="login-error-container">
+              <span className="login-error-message">{user.errorMessage}</span>
+            </div>
+          }
           <div className="register-container">
             <form
               noValidate
