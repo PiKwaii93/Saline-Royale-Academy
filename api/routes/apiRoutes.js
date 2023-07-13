@@ -2,6 +2,7 @@ import express from 'express';
 import { testDatabase } from '../controllers/testDatabaseController.js';
 import { login, register } from '../controllers/userController.js';
 import multer from 'multer'
+import * as fs from 'fs';
 
 const router = express.Router();
 
@@ -24,10 +25,12 @@ router.post('/user/register', register)
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'uploads/');
+        cb(null, 'uploads/');
     },
     filename: (req, file, cb) => {
-      cb(null, Date.now() + '-' + file.originalname);
+        const fileType = file.mimetype.split('/')[1]; 
+        const filename = req.body.id + '-profilePicture.' + fileType;
+        cb(null, filename);
     },
   });
   
@@ -62,8 +65,17 @@ router.post('/user/upload', (req, res, next) => {
       if (err) {
         handleUploadError(err, req, res, next);
       } else {
+        // Récupérer l'ID depuis le corps de la requête
+        const id = req.body.id;
+        const fileType = req.file.mimetype.split('/')[1]; 
+        const path = "./uploads/undefined-profilePicture.jpeg"
+        const newPath = path.replace('undefined', id)
+        if (fs.existsSync(path)) {
+            fs.renameSync(path, newPath)
+        }
+
         // Fichier envoyé accessible via req.file
-        if (req.file) {
+        if (req.file && id) {
           // Traitez le fichier, par exemple, enregistrez-le en base de données ou déplacez-le vers un emplacement permanent
           res.status(200).json({
                 status: 'Success'

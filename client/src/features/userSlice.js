@@ -78,6 +78,7 @@ const userSlice = createSlice({
         state.lastName = action.payload.user.lastName;
         state.email = action.payload.user.email;
         state.token = action.payload.token;
+        state.id = action.payload.user.id;
         state.errorMessage = ''
       }
     });
@@ -89,6 +90,7 @@ const userSlice = createSlice({
         state.lastName = action.payload.user.lastName;
         state.email = action.payload.user.email;
         state.token = action.payload.token;
+        state.id = action.payload.user.id;
         state.errorMessage = ''
       }
     });

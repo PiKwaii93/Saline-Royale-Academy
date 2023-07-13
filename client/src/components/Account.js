@@ -10,7 +10,6 @@ export default function Account() {
       const dispatch = useDispatch();
   
       const user = useSelector((state) => state.user);
-
       
 
       const [file, setFile] = useState(null);
@@ -24,9 +23,10 @@ export default function Account() {
 
         if (file) {
           const formData = new FormData();
+          console.log(file)
           formData.append('image', file);
+          formData.append('id', user.id);
           dispatch(profilPictureUser(formData))
-          console.log(user)
         }
       }
 

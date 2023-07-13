@@ -5,7 +5,11 @@ let urlUsed = "http://localhost:4000"
 
 export default function useProfilPicture() {
   return (formData) => {
-    return axios.post(urlUsed + '/foo/user/upload', formData)
+    return axios.post(urlUsed+'/foo/user/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
     .then((res) => res.data)
     .catch((res) => res.response.data);
     /* axios({
@@ -19,3 +23,4 @@ export default function useProfilPicture() {
       .catch((res) => res.response.data);*/
   }; 
 }
+

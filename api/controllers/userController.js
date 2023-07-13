@@ -32,7 +32,8 @@ export function login(req, res) {
                     user: {
                       lastName: response[0].lastName,
                       firstName: response[0].firstName,
-                      email : email
+                      email : email,
+                      id: response[0].id.toString()
                     },
                     token: token,
                   });
