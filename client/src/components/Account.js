@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { profilPictureUser } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
+
 
 export default function Account() {
+
+      const dispatch = useDispatch();
   
       const user = useSelector((state) => state.user);
-      console.log(user)
+
+      
+
+      const [file, setFile] = useState(null);
+
+      const handleFile =(event) => {
+        setFile(event.target.files[0]);
+      }
+
+      const handleUpload=(event)=>{
+        event.preventDefault();
+
+        if (file) {
+          const formData = new FormData();
+          formData.append('image', file);
+          dispatch(profilPictureUser(formData))
+        }
+      }
 
       return (
         <div className="profil-container-page">
@@ -19,6 +42,10 @@ export default function Account() {
                   <div className="profil-container-information-text">
                     <span className="profil-micro-information-text">{user.email}</span>
                     <span className="profil-information-text">{user.firstName} {user.lastName}</span>
+                  </div>
+                  <div>
+                    <input type="file" onChange={handleFile}/>
+                    <button onClick={handleUpload}>Upload</button>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import useLogin from '../hooks/useLogin';
 import useRegister from '../hooks/useRegister';
+import useProfilPicture from '../hooks/useProfilPicture';
 
 const initialState = {
   id: '',
@@ -9,7 +10,18 @@ const initialState = {
   email: '',
   token: '',
   errorMessage: '',
+  profilPicture: '',
 };
+
+export const profilPictureUser = createAsyncThunk(
+  'user/profilPictureUser',
+  async (formData) => {
+    const profilPicture = useProfilPicture();
+    return profilPicture(formData).then(
+      (res) => res
+    );
+  },
+);
 
 export const loginUser = createAsyncThunk(
   'user/loginUser',
@@ -20,6 +32,7 @@ export const loginUser = createAsyncThunk(
     );
   },
 );
+
 
 export const registerUser = createAsyncThunk(
   'user/registerUser',
@@ -48,6 +61,13 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(profilPictureUser.fulfilled, (state, action) => {
+      if(action.payload.message !== undefined){
+        state.errorMessage = action.payload.message;
+      }else{
+        state.profilPicture = action.payload.user.profilPicture;
+      }
+    });
     builder.addCase(loginUser.fulfilled, (state, action) => {
       if(action.payload.message !== undefined){
         state.errorMessage = action.payload.message;

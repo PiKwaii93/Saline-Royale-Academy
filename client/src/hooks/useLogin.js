@@ -4,7 +4,7 @@ let urlUsed = "http://localhost:4000"
 /* let urlUsed = "http://groupe1.hetic-projects.arcplex.tech/" */
 
 export default function useLogin() {
-  return (email, password, error) => {
+  return (email, password) => {
     return axios({
       url: urlUsed + '/foo/user/login',
       method: 'post',
