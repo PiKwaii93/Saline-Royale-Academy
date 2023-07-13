@@ -26,6 +26,7 @@ export default function Account() {
           const formData = new FormData();
           formData.append('image', file);
           dispatch(profilPictureUser(formData))
+          console.log(user)
         }
       }
 

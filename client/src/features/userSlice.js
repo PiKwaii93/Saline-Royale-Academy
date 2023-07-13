@@ -62,10 +62,12 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(profilPictureUser.fulfilled, (state, action) => {
+      console.log(action.payload)
       if(action.payload.message !== undefined){
         state.errorMessage = action.payload.message;
       }else{
-        state.profilPicture = action.payload.user.profilPicture;
+        /* state.profilPicture = action.payload.user.profilPicture; */
+        state.errorMessage = ''
       }
     });
     builder.addCase(loginUser.fulfilled, (state, action) => {

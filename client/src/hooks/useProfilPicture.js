@@ -5,9 +5,6 @@ let urlUsed = "http://localhost:4000"
 
 export default function useProfilPicture() {
   return (formData) => {
-    for (var pair of formData.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]); 
-    }
     return axios.post(urlUsed + '/foo/user/upload', formData)
     .then((res) => res.data)
     .catch((res) => res.response.data);
