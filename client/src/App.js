@@ -15,6 +15,7 @@ import Register from "./components/Register";
 import HideIfLogged from './components/HideIfLoggin';
 import HideIfNotLogged from './components/HideIfNotLogged';
 import Account from "./components/Account";
+import Forum from "./components/Forum";
 
 export default function App() {
     
@@ -99,6 +100,7 @@ export default function App() {
                           <Route path="/login" element={<Navigate to="/" />} />
                           <Route path="/register" element={<Navigate to="/" />} />
                           <Route path="/account" element={<Account/>} />
+                          <Route path="/forum" element={<Forum />} />
                           <Route path="*" element={<NoPage />} />
                         </Route>
                       </Routes>
