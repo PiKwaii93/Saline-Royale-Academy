@@ -106,14 +106,14 @@ export default function App() {
                         </Route>
                       </Routes>
                     </HideIfNotLogged>
-                    <button onClick={deploy1}>Deploy</button>
-                    <button onClick={deploy2}>Deploy</button>
-                    <button onClick={deploy3}>Deploy</button>
-                    <button onClick={deploy4}>Deploy</button>
+                    <button onClick={deploy1}>Edit</button>
+                    <button onClick={deploy2}>By</button>
+                    <button onClick={deploy3}>Matthias</button>
+                    <button onClick={deploy4}>COURBON</button>
 
-                    <button onClick={test2}>Test</button>
-                    <button onClick={test3}>Test</button>
-                    <button onClick={test4}>Test</button>
+                    <button onClick={test2}>WEB</button>
+                    <button onClick={test3}>P</button>
+                    <button onClick={test4}>2023</button>
                 <Footer/>
             </div>
         );
