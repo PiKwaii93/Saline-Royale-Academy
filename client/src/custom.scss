@@ -1,5 +1,11 @@
 @import 'header.scss';
-@import 'header2.scss';
+@import 'footer.scss';
+@import "Masterclassrooms.scss";
+@import "Masterclassroom-live.scss";
+@import "Masterclassroomguitare.scss";
+@import "Conditionsgenerales.scss";
+@import "Politique.scss";
+@import "cgv.scss";
 
 // Override default variables before the import
 $body-bg: #fff;

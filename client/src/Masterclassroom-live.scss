@@ -1,0 +1,29 @@
+.caroussel {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.text-center-live {
+    display: flex;
+    justify-content: center;
+}
+
+.img-carouss {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 1140px) {
+    .cont-room {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width: 1164px) {
+    .contianer-masterclassroom {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

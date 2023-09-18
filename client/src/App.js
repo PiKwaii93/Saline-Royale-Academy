@@ -6,10 +6,22 @@ import Layout from "./components/Layout";
 import Home from "./components/Home";
 import Blogs from "./components/Blogs";
 import Contact from "./components/Contact";
+import Masterclassroom from "./components/Masterclassroom";
+import Masterclassroomguitare from "./components/Masterclassroomguitare";
+import Masterclassroomsaxo from "./components/Masterclassroomsaxo";
+import Masterclassroomviolon from "./components/Masterclassroomviolon";
+import Masterclassroomclarinette from "./components/Masterclassroomclarinette";
+import Masterclassroombatterie from "./components/Masterclassroombatterie";
+import Masterclassroompiano from "./components/Masterclassroompiano";
+import Masterclassroomlive from "./components/Masterclassroomlive";
 import NoPage from "./components/NoPage";
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Header2 from "./components/Header2";
+import Conditionsgenerales from "./components/Conditionsgenerales";
+import Politiqueconfidentialite from "./components/Politiqueconfidentialite";
+import cgv from "./components/cgv";
+import Cgv from "./components/cgv";
+
 
 export default class App extends React.Component {
     
@@ -77,23 +89,26 @@ export default class App extends React.Component {
     render(){
         return (
             <div className="App">
-                {window.innerWidth > 1200 ? <Header2/> : <Header/>}
+                <Header/>
                     <Routes>
                         <Route path="/" element={<Layout />}>
                             <Route index element={<Home />} />
                             <Route path="blogs" element={<Blogs />} />
                             <Route path="contact" element={<Contact />} />
+                            <Route path="masterclassroom" element={<Masterclassroom />} />
                             <Route path="*" element={<NoPage />} />
+                            <Route path="masterclassroomlive" element={< Masterclassroomlive />}/>
+                            <Route path="masterclassroomguitare" element={< Masterclassroomguitare />}/>
+                            <Route path="masterclassroomsaxo" element={< Masterclassroomsaxo />}/>
+                            <Route path="masterclassroomviolon" element={< Masterclassroomviolon />}/>
+                            <Route path="masterclassroomclarinette" element={< Masterclassroomclarinette />}/>
+                            <Route path="masterclassroombatterie" element={< Masterclassroombatterie />}/>
+                            <Route path="masterclassroompiano" element={< Masterclassroompiano />}/>
+                            <Route path="conditionsgenerales" element={< Conditionsgenerales />}/>
+                            <Route path="politiqueconfidentialite" element={< Politiqueconfidentialite />}/>
+                            <Route path="cgv" element={< Cgv />}/>
                         </Route>
                     </Routes>
-                    <button onClick={this.deploy1}>Deploy</button>
-                    <button onClick={this.deploy2}>Deploy</button>
-                    <button onClick={this.deploy3}>Deploy</button>
-                    <button onClick={this.deploy4}>Deploy</button>
-
-                    <button onClick={this.test2}>Test</button>
-                    <button onClick={this.test3}>Test</button>
-                    <button onClick={this.test4}>Test</button>
                 <Footer/>
             </div>
         );

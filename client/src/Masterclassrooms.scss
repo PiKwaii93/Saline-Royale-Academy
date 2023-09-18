@@ -1,0 +1,189 @@
+.cont-room {
+    padding: 4%;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-2 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-cours {
+    display: block;
+}
+
+.typo-masterclassroom {
+    color: #000;
+    font-size: 27px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.recherche {
+    width: 30%;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 40px;
+}
+
+.recherche2 {
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #BABCD2;
+}
+
+.text-piano {
+    border: none;
+    display: flex;
+    width: 295px;
+    height: 27px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 18px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 4%;
+}
+
+@media screen and (max-width:1024px) {
+    .container-cours {
+        margin-left: 4%;
+    }
+
+    .saxophone-cours  {
+        width: 85%;
+    }
+
+    .guitar-cours {
+        width: 85%;
+    }
+
+    .violon-cours {
+        width: 85%;
+    }
+
+    .clarinette-cours {
+        width: 85%;
+    }
+
+    .batterie-cours {
+        width: 85%;
+    }
+
+    .piano-cours {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width:885px) {
+    .saxophone-cours  {
+        width: 70%;
+    }
+
+    .guitar-cours {
+        width: 70%;
+    }
+
+    .violon-cours {
+        width: 70%;
+    }
+
+    .clarinette-cours {
+        width: 70%;
+    }
+
+    .batterie-cours {
+        width: 70%;
+    }
+
+    .piano-cours {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container-1 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .container-2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .cont-room {
+        width: 67%;
+    }
+
+    .typo-masterclassroom {
+        font-size: 15pt;
+    }
+}
+
+@media screen and (max-width: 685px) {
+    .container-1 {
+        display: flex;
+    }
+
+    .container-2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .saxophone-cours  {
+        width: 100%;
+    }
+
+    .guitar-cours {
+        width: 100%;
+    }
+
+    .violon-cours {
+        width: 100%;
+    }
+
+    .clarinette-cours {
+        width: 100%;
+    }
+
+    .batterie-cours {
+        width: 100%;
+    }
+
+    .piano-cours {
+        width: 100%;
+    }
+
+    .cont-room {
+        margin-left: 24%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cont-room {
+        margin-left: 14%;
+    }
+}
+
+@media screen and (max-width: 1067px) {
+    .cont-room {
+        padding: 3%;
+        margin-bottom: 2%;
+    }
+}
+
+/*@media screen and (max-width: 1024px) {
+    .container-cours {
+        margin-left: 4%;
+    }
+}*/

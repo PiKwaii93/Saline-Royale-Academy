@@ -1,0 +1,283 @@
+.footer-container{
+  /* Footer Desktop */
+
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 100px;
+  height: 200px;
+
+  /* Main/First Background Color */
+
+  background: #CACBDF;
+}
+
+.footer-container2{
+  /* Footer Desktop */
+  width: 100%;
+  height: 219px;
+  flex-shrink: 0;
+}
+
+.footer-container3{
+  /* Footer Desktop */
+
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 100px;
+  height: 75px;
+
+  /* Main/First Background Color */
+
+  background: #CACBDF;
+}
+
+.container-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.triple-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.container-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.container-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.text-saline {
+  color: #71739F;
+  font-size: 12px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.8px;
+}
+
+ul li a{
+  text-decoration: none;
+}
+
+.underline-list{
+  list-style-type: none;
+}
+
+.text-footer-tag {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 3.5%;
+}
+
+.text-footer {
+  color: #000;
+
+  /* Typography/Presentation Text */
+  font-size: 16.8px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.52px;
+}
+.text-align {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 2.5%;
+}
+
+.gcu {
+  color: var(--grey-900, #101828);
+
+  /* Typography/Footer Link 2 */
+  font-size: 13px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18.2px;
+}
+
+.rgpd {
+  color: var(--grey-900, #101828);
+
+  /* Typography/Footer Link 2 */
+  font-size: 13px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18.2px;
+}
+
+.cookies {
+  color: var(--grey-900, #101828);
+
+  /* Typography/Footer Link 2 */
+  font-size: 13px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18.2px;
+}
+
+.polit-conf {
+  color: var(--grey-900, #101828);
+
+  /* Typography/Footer Link 2 */
+  font-size: 13px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18.2px;
+}
+
+.enter-mail {
+  display: flex;
+  width: 309px;
+  height: 44px;
+  padding: 0px 15px;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #FFF;
+  border: none;
+  color: var(--input-placeholder, #BABCD2);
+  font-size: 12px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.8px;
+}
+
+.btn-color-newslet {
+  display: flex;
+  width: 222px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: var(--login-button-login, #AC37B5);
+  border: none;
+  color: var(--main-text-color, #FFF);
+
+  /* Typography/Login Button Text */
+  font-size: 14px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 11.2px;
+}
+
+.content-footer {
+  display: flex;
+  width: 1091px;
+  height: 162px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.clickable {
+  display: flex;
+  width: 544px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.reseaux-footer {
+  display: flex;
+  width: 191px;
+  height: 26px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.facebook {
+  padding: 2%;
+}
+
+.instagram {
+  padding: 2%;
+}
+
+.linkedin {
+  padding: 2%;
+}
+
+.youtube {
+  padding: 2%;
+}
+
+.logo_saline_footer {
+  display: flex;
+  width: 169px;
+  padding-bottom: 0px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.separateur {
+  width: 25px;
+  height: 16px;
+}
+
+div a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 624px) {
+  .enter-mail {
+    display: none;
+  }
+
+  .clickable {
+    display: flex;
+    justify-content: center;
+  }
+
+  .text-footer {
+    font-size: 10.8pt;
+  }
+
+  .text-footer-tag {
+    gap: 17px;
+  }
+}
