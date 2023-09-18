@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
+//import 'http://localhost:3000/saline/forum';
 import axios from "axios";
-import '../forum.scss';
-import { Link } from "react-router-dom";
-import "./forum.scss"; // Importez les styles SCSS ici
 
 export default function Forum() {
   const [forumData, setForumData] = useState([]);
@@ -17,7 +15,6 @@ export default function Forum() {
 
   const handleSubmit = (newQuestionOrAnswer) => {
     axios.post("/api/forum", newQuestionOrAnswer).then((response) => {
-      // Mettez à jour l'état avec les données mises à jour si nécessaire
     });
   };
 

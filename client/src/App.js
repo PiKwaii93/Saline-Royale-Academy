@@ -89,6 +89,7 @@ export default function App() {
                         <Route path="/*" element={<Navigate to="/login" />} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/register" element={<Register/>} />
+                        <Route path="/forum" element={<Forum/>} />
                       </Routes>
                     </HideIfLogged>
                     <HideIfNotLogged>
@@ -100,7 +101,7 @@ export default function App() {
                           <Route path="/login" element={<Navigate to="/" />} />
                           <Route path="/register" element={<Navigate to="/" />} />
                           <Route path="/account" element={<Account/>} />
-                          <Route path="/forum" element={<Forum />} />
+                          <Route path="/forum" element={<Navigate to="/" />} />
                           <Route path="*" element={<NoPage />} />
                         </Route>
                       </Routes>
